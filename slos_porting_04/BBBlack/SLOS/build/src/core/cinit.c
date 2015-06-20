@@ -223,8 +223,7 @@ modifyControlCPSR(USER|IRQoN); /* change to USER mode and enable interrupts */
   * -------------------------------------------------------------------
   */
 
-//C_EntryTask1(); 
-C_EntryTaskCache(); 
+C_EntryTask1(); 
 //lltrace(C_EntryTask1(),ENTERTASK); 
 
  /* -------------------------------------------------------------------
