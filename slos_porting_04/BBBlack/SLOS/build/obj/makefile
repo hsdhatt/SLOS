@@ -30,7 +30,6 @@ ddf_io.o \
 led_driver.o \
 ns16550.o \
 serial_driver.o \
-cache_driver.o \
 watchdog.o \
 mutex.o \
 cinit.o \
@@ -42,7 +41,6 @@ uid.o \
 task1_start.o \
 task2_start.o \
 task3_start.o \
-taskcache_start.o
 
 all : ${OBJS}
 	${LINKER} -T linker.lds -Map ../image/slos.map ${OBJS} -L /usr/lib/gcc/arm-linux-gnueabi/4.6 -lgcc -o ../image/slos.elf
@@ -122,9 +120,6 @@ watchdog.o : ../src/am3355x/devices/watchdog.c
 serial_driver.o : ../src/am3355x/devices/serial_driver.c
 	${CC} ${CFLAGS} -o $@ $<
  
-cache_driver.o : ../src/am3355x/devices/cache_driver.c
-	${CC} ${CFLAGS} -o $@ $<
- 
 mutex.o : ../src/core/mutex.c
 	${CC} ${CFLAGS} -o $@ $<
  
@@ -153,9 +148,6 @@ task2_start.o : ../src/apps/task2_start.c
 	${CC} ${CFLAGS} -o $@ $<
  
 task3_start.o : ../src/apps/task3_start.c
-	${CC} ${CFLAGS} -o $@ $<
-
-taskcache_start.o : ../src/apps/taskcache_start.c
 	${CC} ${CFLAGS} -o $@ $<
 
 clean:

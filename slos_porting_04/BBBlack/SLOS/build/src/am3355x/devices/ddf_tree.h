@@ -72,7 +72,6 @@
 #include "../../devices/ddf_frame.h"
 #include "../devices/led_driver.h"
 #include "../devices/serial_driver.h"
-#include "../devices/cache_driver.h"
 
 /*****************************************************************************
  * DEVICES
@@ -140,23 +139,6 @@ device_treestr devices[] =
     {serial_write_byte},
     {serial_read_byte},
   0
-  },
-
-/* ------------------------------------------------------------------------
- * Cache device
- *
- * L1 and L2 Cache  device driver controls 
- */
-
-  {
-  "CACHE",
-  DEVICE_CACHE_BBBLACK,
-  cache_init,
-  cache_open,
-  cache_close,
-    0,
-    0,
-  cache_read_reg
   },
 
 /* -- End of tree -- */
