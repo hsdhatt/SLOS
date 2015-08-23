@@ -19,23 +19,17 @@ Host Platform
 
 Build Process
 
-  To build mpuSLOS you need to have GNU tools installed, as well as the make 
-  utility.
-  
-  GNU tools version
-  :
-  arm-elf-gcc (GCC) 3.3.1
-  GNU ld version 2.14 20030612
-  GNU assembler 2.14 20030612
+  To build SLOS you need the arm-none-eabi- toolchain.
+   
+  1. cd obj/
 
-
-  1. CD into the SLOS directory
-
-  2. Type: make all or build.bat at the command prompt.
+  2. make CROSS_COMPILE=arm-none-eabi-
 
   If there are no errors the binary image is placed into build/image 
-  directory and is given the name slos.bin. slos.bin can then be loaded 
-  and executed on an Evaluator-7T. 
+  directory and is given the name app. app can then be copied to the sdcard
+  along with MLO and executed on a beaglebone black rev a5c. The MLO file is
+  a bootloader file which will copy the binary called "app" and place it at
+  RAM address 0x80000000.
 
 
 
