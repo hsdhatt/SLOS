@@ -46,7 +46,7 @@ all : ${OBJS}
 	${LINKER} -T linker.lds -Map ../image/slos.map ${OBJS} -L /usr/lib/gcc/arm-linux-gnueabi/4.6 -lgcc -o ../image/slos.elf
 	${CONVERT} --gap-fill=0xff -O binary ../image/slos.elf ../image/slos.bin
 	${MKIMAGE} ../image/slos.bin ../image/app
-	arm-linux-gnueabi-objdump -D ../image/slos.elf > ./o
+	arm-linux-gnueabi-objdump -D ../image/slos.elf > ./slos.objdump
 
 start.o : ../src/start.s
 	${ASSEMBLER} ${ASFLAGS} -o $@ $<
